@@ -4,15 +4,30 @@
 
     <data>
 
+        <import type="com.keding.mvvm_android_demo.ui.ObservableFieldActivity.UserPresenter" />
+
         <variable
             name="student"
             type="com.keding.mvvm_android_demo.bean.Student" />
+
+
+        <variable
+            name="userpresent"
+            type="UserPresenter" />
     </data>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:text="单向绑定\n"
+            android:textStyle="bold" />
+
         <TextView
 
             android:layout_width="wrap_content"
@@ -26,10 +41,44 @@
             android:layout_height="wrap_content"
             android:text="@{String.format(@string/age, student.score)}"
             tools:text="age" />
+
         <Button
-            android:onClick="change"
-            android:text="修改值"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:onClick="change"
+            android:text="通过修改属性值，修改UI" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="双向绑定\n"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={student.name}"
+            tools:text="name" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="change2"
+            android:text="通过修改UI,修改属性" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="事件绑定"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->userpresent.showToast(student)}"
+            android:text="click me" />
     </LinearLayout>
 </layout>

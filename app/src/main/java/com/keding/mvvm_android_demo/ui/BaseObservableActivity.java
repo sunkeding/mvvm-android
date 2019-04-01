@@ -8,7 +8,6 @@ import android.view.View;
 import com.keding.mvvm_android_demo.R;
 import com.keding.mvvm_android_demo.bean.UserInfo;
 import com.keding.mvvm_android_demo.databinding.ActivityBaseobservableBinding;
-import com.keding.mvvm_android_demo.databinding.ActivityMainBinding;
 
 /**
  * @author: skd
