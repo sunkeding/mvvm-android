@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".ui.BaseObservableActivity" />
         <activity android:name=".ui.ObservableFieldActivity" />
+        <activity android:name=".livedata.LiveDataActivity" />
     </application>
 
 </manifest>
