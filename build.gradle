@@ -1,27 +1,116 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 buildscript {
-    
-    repositories {
-        google()
-        jcenter()
+    ext {
+        GrowingIO = ('true' == System.getProperty('GrowingIO'))
+        Tinker = ('true' == System.getProperty('Tinker'))
+        Tingyun = ('true' == System.getProperty('Tingyun'))
+        NetMonitor = ('true' == System.getProperty('NetMonitor'))
+
+        println "---------------GrowingIO = " + GrowingIO
+        println "---------------Tinker = " + Tinker
+        println "---------------Tingyun = " + Tingyun
     }
+
+    repositories {
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/releases/' }
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/snapshots/' }
+        //听云maven库地址
+        maven { url 'http://nexus2.tingyun.com/nexus/content/repositories/snapshots/' }
+
+        //切换到私有库
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/google/' }
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/aliyun-public/' }
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/jcenter/' }
+    }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
-        
+        classpath 'com.android.tools.build:gradle:3.1.4'
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        // lefit插件版本设置为release.latest，将自动更新最新release版本
+        classpath 'com.leoao:lefit-gradle-plugin:release.latest'
+
+        classpath 'com.leoao:log-gradle-plugin:0.0.1'
+
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
+
+        // GrowingIO
+        if (GrowingIO) {
+            classpath 'com.growingio.android:vds-gradle-plugin:autotrack-2.7.0'
+        }
+
+        // TinkerPatch
+        if (Tinker) {
+            classpath "com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:1.2.6"
+        }
+
+        //听云依赖
+        if(Tingyun){
+            classpath 'com.networkbench.newlens.agent.android:agent-gradle-plugin:2.11.1'
+        }
+
+    }
+
+    //先删除了拿最新的版本的逻辑；
+    configurations.classpath {
+        resolutionStrategy {
+            eachDependency { details ->
+                if ('com.leoao' == details.requested.group &&
+                        'lefit-gradle-plugin' == details.requested.name &&
+                        'release.latest'.equalsIgnoreCase(details.requested.version)) {
+                    String mavenMetaUrl = 'http://maven.leoao.com/nexus/content/repositories/releases/com/leoao/lefit-gradle-plugin/maven-metadata.xml'
+                    String mavenMetadata = new URL(mavenMetaUrl).getText()
+                    String latestVersion = new XmlParser().parseText(mavenMetadata).versioning.release[0].text()
+                    details.useVersion latestVersion
+                }
+            }
+        }
     }
 }
 
-allprojects {
+subprojects {
+    boolean isMainModule = (project.name == 'app')
+    if (isMainModule) {
+        apply plugin: 'com.android.application'
+    } else {
+        apply plugin: 'com.android.library'
+    }
+    apply plugin: 'lefit'
+
     repositories {
-        google()
-        jcenter()
-    }
-}
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/releases/' }
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/snapshots/' }
+        //听云maven库
+        maven { url 'http://nexus2.tingyun.com/nexus/content/repositories/snapshots/' }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+        //切换到私有库
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/google/' }
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/aliyun-public/' }
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/jcenter/' }
+        maven { url 'http://maven.leoao.com/nexus/content/repositories/aliyun-jitpack/' }
+    }
+
+    android {
+        lintOptions {
+            abortOnError false
+            checkReleaseBuilds false
+
+            String staticAnalysisDir = "${project.rootProject.projectDir.absolutePath}/static_analysis"
+            lintConfig file("${staticAnalysisDir}/lint_config_lefit_user.xml")
+
+            String reportsDir = "${staticAnalysisDir}/reports"
+            File reports = new File(reportsDir)
+            if (!reports.exists()) {
+                reports.mkdirs()
+            }
+
+            htmlReport true
+            htmlOutput file("${reportsDir}/lint_report_${project.name}.html")
+            xmlReport true
+            xmlOutput file("${reportsDir}/lint_report_${project.name}.xml")
+        }
+    }
+
+
 }

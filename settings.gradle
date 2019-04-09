@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':leoao_net2'
+project(':leoao_net2').projectDir = new File('leoao_net')

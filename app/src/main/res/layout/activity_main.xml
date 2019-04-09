@@ -29,6 +29,11 @@
                 android:layout_height="wrap_content"
                 android:onClick="gotoLiveData"
                 android:text="LiveData" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="gotoRxAct"
+                android:text="RXjava" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
