@@ -8,12 +8,8 @@
             type="com.keding.mvvm_android_demo.bean.WeatherResponse.HeWeatherBean" />
 
         <variable
-            name="adapter"
-            type="com.keding.mvvm_android_demo.rx.RVAdapter" />
-
-        <variable
             name="clickevent"
-            type="com.keding.mvvm_android_demo.rx.RVAdapter.RVAdapterClick" />
+            type="com.keding.mvvm_android_demo.databinding.adapter.RVAdapter.RVAdapterClick" />
     </data>
 
     <LinearLayout
@@ -22,9 +18,9 @@
         android:layout_marginTop="10dp"
         android:background="@android:color/holo_green_light"
         android:onClick="@{()->clickevent.itemClick(weather)}"
+
         android:orientation="vertical">
 
-        <!--android:onClick="@{()->adapter.itemClick(weather)}"-->
 
         <TextView
             android:layout_width="match_parent"
@@ -35,7 +31,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="35dp"
+
             android:onClick="@{()->clickevent.buttonClick(weather)}"
             android:text="click me" />
+
     </LinearLayout>
 </layout>

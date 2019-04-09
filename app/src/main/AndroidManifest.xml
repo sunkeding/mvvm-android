@@ -21,11 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.BaseObservableActivity" />
-        <activity android:name=".ui.ObservableFieldActivity" />
-        <activity android:name=".livedata.LiveDataActivity" />
-        <activity android:name=".ui.BindingLiveDataActivity" />
-        <activity android:name=".rx.RxActivity" />
+        <activity android:name=".databinding.BaseObservableActivity" />
+        <activity android:name=".databinding.ObservableFieldActivity" />
+        <activity android:name=".livedataandviewmodel.LiveDataActivity" />
+        <activity android:name=".databinding.adapter.RxActivity" />
+        <activity android:name=".mvvm.MvvmActiviy" />
     </application>
 
 </manifest>

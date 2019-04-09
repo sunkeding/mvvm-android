@@ -14,26 +14,34 @@
             android:orientation="vertical">
 
             <Button
-                android:text="BaseObservable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="gotoBaseObservable" />
+                android:onClick="gotoBaseObservable"
+                android:text="databing之BaseObservable" />
+
             <Button
-                android:text="ObservableField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="gotoObservableField" />
+                android:onClick="gotoObservableField"
+                android:text="databing之ObservableField" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="gotoLiveData"
-                android:text="LiveData" />
+                android:text="LiveData简单Demo" />
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="gotoRxAct"
-                android:text="RXjava" />
+                android:text="databing+列表" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="gotoMvvmAct"
+                android:text="rxjava+databing+viewmodel+livedata" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

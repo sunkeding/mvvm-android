@@ -1,4 +1,4 @@
-package com.keding.mvvm_android_demo.livedata;
+package com.keding.mvvm_android_demo.livedataandviewmodel;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;

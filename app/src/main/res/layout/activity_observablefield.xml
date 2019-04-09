@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="com.keding.mvvm_android_demo.ui.ObservableFieldActivity.UserPresenter" />
+        <import type="com.keding.mvvm_android_demo.databinding.ObservableFieldActivity" />
 
         <variable
             name="student"
@@ -13,7 +13,7 @@
 
         <variable
             name="userpresent"
-            type="UserPresenter" />
+            type="com.keding.mvvm_android_demo.databinding.ObservableFieldActivity.UserPresenter" />
     </data>
 
     <LinearLayout

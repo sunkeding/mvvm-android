@@ -1,4 +1,4 @@
-package com.keding.mvvm_android_demo.ui;
+package com.keding.mvvm_android_demo.databinding;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.keding.mvvm_android_demo.R;
 import com.keding.mvvm_android_demo.bean.Student;
-import com.keding.mvvm_android_demo.databinding.ActivityObservablefieldBinding;
+import com.keding.mvvm_android_demo.databinding.ObservableFieldActivity;
 
 /**
  * @author: skd
@@ -40,20 +40,21 @@ public class ObservableFieldActivity extends Activity {
         student.setScore(9000L);
 
     }
+
     /**
      * 修改控件值，观察属性变化
      */
     public void change2(View view) {
-        TextView tv_change=findViewById(R.id.tv_change);
+        TextView tv_change = findViewById(R.id.tv_change);
         tv_change.setText("修改后的名字");
         Log.d("ObservableFieldActivity", "student.name:" + student.name.get());
     }
 
 
     // View的点击事件
-    public class UserPresenter{
-        public void showToast(Student student){
-            Toast.makeText(ObservableFieldActivity.this, "short click:"+student.name.get(), Toast.LENGTH_SHORT).show();
+    public class UserPresenter {
+        public void showToast(Student student) {
+            Toast.makeText(ObservableFieldActivity.this, "short click:" + student.name.get(), Toast.LENGTH_SHORT).show();
         }
 
         public void showToast2(Student student) {

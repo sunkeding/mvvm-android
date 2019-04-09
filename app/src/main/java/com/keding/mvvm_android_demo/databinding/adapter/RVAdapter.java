@@ -1,4 +1,4 @@
-package com.keding.mvvm_android_demo.rx;
+package com.keding.mvvm_android_demo.databinding.adapter;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
@@ -41,6 +41,7 @@ public class RVAdapter extends RecyclerView.Adapter {
         //正常写法
 //        View inflate = inflater.inflate((R.layout.item_rv, viewGroup, false);
 //        return new WeatherHolder(inflate);
+
         //databind写法
         ItemRvBinding dataBinding = DataBindingUtil.inflate(inflater, R.layout.item_rv, viewGroup, false);
         return new WeatherHolder(dataBinding);

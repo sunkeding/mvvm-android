@@ -1,4 +1,4 @@
-package com.keding.mvvm_android_demo.rx;
+package com.keding.mvvm_android_demo.databinding.adapter;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
@@ -50,12 +50,8 @@ public class RxActivity extends Activity {
             }
         });
         getWeather("CN101020300");
-        activityRxBinding.srl.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                activityRxBinding.srl.setRefreshing(true);
-            }
-        }, 500);
+        activityRxBinding.srl.setRefreshing(true);
+
     }
 
     private void getWeather(String cityId) {
