@@ -33,6 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:onClick="changeName"
-            android:text="修改值" />
+            android:text="单向数据绑定-BaseObservable" />
     </LinearLayout>
 </layout>

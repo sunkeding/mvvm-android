@@ -46,13 +46,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="change"
-            android:text="通过修改属性值，修改UI" />
+            android:text="单向数据绑定-ObservableField，通过修改属性值，修改UI" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="双向绑定\n"
+            android:text="双向绑定,就是在@后加了个等号\n"
             android:textStyle="bold" />
 
         <TextView
@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="change2"
-            android:text="通过修改UI,修改属性" />
+            android:text="通过修改控件的值的方式来修改属性" />
 
         <TextView
             android:layout_width="wrap_content"

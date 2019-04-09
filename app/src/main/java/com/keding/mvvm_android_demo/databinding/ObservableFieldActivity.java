@@ -5,12 +5,10 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.keding.mvvm_android_demo.R;
 import com.keding.mvvm_android_demo.bean.Student;
-import com.keding.mvvm_android_demo.databinding.ObservableFieldActivity;
 
 /**
  * @author: skd
@@ -19,12 +17,12 @@ import com.keding.mvvm_android_demo.databinding.ObservableFieldActivity;
  */
 public class ObservableFieldActivity extends Activity {
     private Student student;
+    ActivityObservablefieldBinding activityObservablefieldBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_observablefield);
-        ActivityObservablefieldBinding activityObservablefieldBinding = DataBindingUtil.setContentView(this, R.layout.activity_observablefield);
+        activityObservablefieldBinding = DataBindingUtil.setContentView(this, R.layout.activity_observablefield);
         student = new Student("skd", 200L);
         activityObservablefieldBinding.setStudent(student);
         //事件绑定别忘记了这句代码
@@ -45,8 +43,7 @@ public class ObservableFieldActivity extends Activity {
      * 修改控件值，观察属性变化
      */
     public void change2(View view) {
-        TextView tv_change = findViewById(R.id.tv_change);
-        tv_change.setText("修改后的名字");
+        activityObservablefieldBinding.tvChange.setText("修改后的名字");
         Log.d("ObservableFieldActivity", "student.name:" + student.name.get());
     }
 

@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.keding.mvvm_android_demo.R;
 import com.keding.mvvm_android_demo.bean.UserInfo;
-import com.keding.mvvm_android_demo.databinding.BaseObservableActivity;
+
 /**
  * @author: skd
  * @date 2019/4/1
