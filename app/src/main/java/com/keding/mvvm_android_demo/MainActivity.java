@@ -6,10 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.keding.mvvm_android_demo.bean.UserInfo;
-import com.keding.mvvm_android_demo.livedataandviewmodel.LiveDataActivity;
-import com.keding.mvvm_android_demo.databinding.adapter.RxActivity;
 import com.keding.mvvm_android_demo.databinding.BaseObservableActivity;
 import com.keding.mvvm_android_demo.databinding.ObservableFieldActivity;
+import com.keding.mvvm_android_demo.databinding.adapter.RxActivity;
+import com.keding.mvvm_android_demo.livedataandviewmodel.LiveDataActivity;
+import com.keding.mvvm_android_demo.livedatabus.FirstActivity;
 import com.keding.mvvm_android_demo.mvvm.MvvmActiviy;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,5 +45,9 @@ public class MainActivity extends AppCompatActivity {
     public void gotoMvvmAct(View view) {
         startActivity(new Intent(this, MvvmActiviy.class));
 
+    }
+
+    public void gotoLiveDataBusAct(View view) {
+        startActivity(new Intent(this, FirstActivity.class));
     }
 }

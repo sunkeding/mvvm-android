@@ -42,6 +42,12 @@
                 android:layout_height="wrap_content"
                 android:onClick="gotoMvvmAct"
                 android:text="rxjava+databing+viewmodel+livedata" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="gotoLiveDataBusAct"
+                android:text="liveDataBus" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
