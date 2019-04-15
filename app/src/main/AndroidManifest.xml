@@ -28,6 +28,7 @@
         <activity android:name=".mvvm.MvvmActiviy" />
         <activity android:name=".livedatabus.FirstActivity" />
         <activity android:name=".livedatabus.SecondActivity" />
+        <activity android:name=".livedataandviewmodel.lifecycle.TestLifecycleActivity" />
     </application>
 
 </manifest>

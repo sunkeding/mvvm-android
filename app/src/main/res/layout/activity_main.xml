@@ -48,6 +48,11 @@
                 android:layout_height="wrap_content"
                 android:onClick="gotoLiveDataBusAct"
                 android:text="liveDataBus" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="gotoLifecycleAct"
+                android:text="live生命周期" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

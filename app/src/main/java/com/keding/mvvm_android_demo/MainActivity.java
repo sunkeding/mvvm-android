@@ -10,6 +10,7 @@ import com.keding.mvvm_android_demo.databinding.BaseObservableActivity;
 import com.keding.mvvm_android_demo.databinding.ObservableFieldActivity;
 import com.keding.mvvm_android_demo.databinding.adapter.RxActivity;
 import com.keding.mvvm_android_demo.livedataandviewmodel.LiveDataActivity;
+import com.keding.mvvm_android_demo.livedataandviewmodel.lifecycle.TestLifecycleActivity;
 import com.keding.mvvm_android_demo.livedatabus.FirstActivity;
 import com.keding.mvvm_android_demo.mvvm.MvvmActiviy;
 
@@ -49,5 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void gotoLiveDataBusAct(View view) {
         startActivity(new Intent(this, FirstActivity.class));
+    }
+
+    public void gotoLifecycleAct(View view) {
+        startActivity(new Intent(this, TestLifecycleActivity.class));
+
     }
 }
