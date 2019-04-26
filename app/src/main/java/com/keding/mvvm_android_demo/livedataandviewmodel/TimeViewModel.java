@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.os.SystemClock;
+import android.util.Log;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -15,6 +16,7 @@ import java.util.TimerTask;
  */
 public class TimeViewModel extends ViewModel {
     private static final int ONE_SECOND = 1000;
+    private final Timer timer;
 
     private MutableLiveData<Long> mElapsedTime = new MutableLiveData<>();
 
@@ -22,7 +24,7 @@ public class TimeViewModel extends ViewModel {
 
     public TimeViewModel() {
         mInitialTime = SystemClock.elapsedRealtime();
-        Timer timer = new Timer();
+         timer = new Timer();
 
         // Update the elapsed time every second.
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -38,6 +40,13 @@ public class TimeViewModel extends ViewModel {
 
     public LiveData<Long> getElapsedTime() {
         return mElapsedTime;
+    }
+
+    @Override
+    protected void onCleared() {
+        Log.d("skdskd", "onCleared:"+System.currentTimeMillis());
+        timer.cancel();
+
     }
 }
 

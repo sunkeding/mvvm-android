@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.keding.mvvm_android_demo.R;
@@ -36,5 +37,11 @@ public class LiveDataActivity extends AppCompatActivity {
         };
 
         timeViewModel.getElapsedTime().observe(this, elapsedTimeObserver);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("skdskd", "onDestroy:"+System.currentTimeMillis());
     }
 }
